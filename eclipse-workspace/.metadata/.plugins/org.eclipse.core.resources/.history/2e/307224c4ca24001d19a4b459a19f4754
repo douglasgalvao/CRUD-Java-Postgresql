@@ -1,0 +1,60 @@
+package maven.ex;
+
+public class Carro {
+	private int id;
+	private String nome;
+	private String modelo;
+	private int ano;
+	
+	public Carro() {
+		this.id = 0;
+		this.nome = "";
+		this.modelo = "";
+		this.ano = 0;
+	}
+	
+	public Carro(int id, String nome, String modelo, char ano) {
+		this.id = id;
+		this.nome = nome;
+		this.modelo = modelo;
+		this.ano = ano;
+	}
+
+	public int getid() {
+		return id;
+	}
+
+	public void setid(int id) {
+		this.id = id;
+	}
+
+	public String getnome() {
+		return nome;
+	}
+
+	public void setnome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getmodelo() {
+		return modelo;
+	}
+
+	public void setmodelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	public int getano() {
+		return ano;
+	}
+
+	public void setano(char ano) {
+		this.ano = ano;
+	}
+
+	@Override
+	public String toString() {
+		return "Carro [id=" + id + ", nome=" + nome + ", modelo=" + modelo + ", ano=" + ano + "]";
+	}	
+}
+

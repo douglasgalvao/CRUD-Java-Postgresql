@@ -1,0 +1,8 @@
+package exercicio2;
+
+public class Teste {
+	String a = Main.teste02();
+	public static void main(String[] args) {
+		System.out.println(a);
+	}
+}

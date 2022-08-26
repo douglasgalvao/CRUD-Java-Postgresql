@@ -1,0 +1,59 @@
+package exercicio2;
+
+public class Carro {
+	private int id;
+	private String nome;
+	private String modelo;
+	private int ano;
+	
+	public Carro() {
+		this.id = -1;
+		this.nome = "";
+		this.modelo = "";
+		this.ano = '*';
+	}
+	
+	public Carro(int id, String nome, String modelo, int ano) {
+		this.id = id;
+		this.nome = nome;
+		this.modelo = modelo;
+		this.ano = ano;
+	}
+
+	public int getid() {
+		return id;
+	}
+
+	public void setid(String id) {
+		this.id = Integer.parseInt(id);
+	}
+
+	public String getnome() {
+		return nome;
+	}
+
+	public void setnome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getmodelo() {
+		return modelo;
+	}
+
+	public void setmodelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	public int getano() {
+		return ano;
+	}
+
+	public void setano(int ano) {
+		this.ano = ano;
+	}
+
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", nome=" + nome + ", modelo=" + modelo + ", ano=" + ano + "]";
+	}	
+}

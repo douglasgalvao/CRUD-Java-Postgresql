@@ -1,0 +1,83 @@
+package exercicio2;
+
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner reader = new Scanner(System.in);
+		DAO dao = new DAO();
+		Carro carro = null;
+		Carro[] carros = null;
+		String aux;
+		boolean success;
+		dao.conectar();
+		int userControl;
+		System.out.println("MANIPULANDO DADOS NO POSTGRESQL COM JAVA PADRÃO PROJETO MAVEN");
+		System.out.println("Matricula:678080	NOME:Douglas Machado");
+		System.out.println("CRUD EM JAVA");
+		System.out.println(
+				"Escolha as opções abaixo para adicionar , alterar , listar ou remover algum item do banco de dados.");
+		System.out.println("1 - adicionar\n2 - alterar\n3 - listar\n4 - remover\n0 - sair");
+		userControl = reader.nextInt();
+		while (userControl < 0 || userControl > 4) {
+			System.out.println("Desculpe , entrada inválida! tente outra vez com uma entrada válida");
+			System.out.println("Para sair , basta digitar 0");
+		}
+		while (userControl != 0) {
+			while (userControl < 0 || userControl > 4) {
+				System.out.println("Desculpe , entrada inválida! tente outra vez com uma entrada válida");
+				System.out.println("Para sair , basta digitar 0");
+			}
+			if (userControl == 0) {
+			} else if (userControl == 1) {
+				carro = new Carro();
+				System.out.println("Digite o id do carro");
+				carro.setid(reader.nextInt());
+				System.out.println("Digite o nome do carro");
+				carro.setnome(reader.nextLine());
+				System.out.println("Digite o ano do carro");
+				carro.setano(reader.nextInt());
+				System.out.println("Digite o modelo do carro");
+				carro.setnome(reader.nextLine());
+				dao.inserirCarro(carro);
+				System.out.println("Carro inserido com sucesso");
+				System.out.println(carro.toString());
+				carro = null;
+			} else if (userControl == 2) {
+				carro = new Carro();
+				System.out.println("Digite o id do carro");
+				carro.setid(reader.nextInt());
+				System.out.println("Digite o nome do carro");
+				carro.setnome(reader.nextLine());
+				System.out.println("Digite o modelo do carro");
+				carro.setnome(reader.nextLine());
+				System.out.println("Digite o ano do carro");
+				carro.setano(reader.nextInt());
+				success = dao.atualizarCarro(carro);
+				if (success) {
+					System.out.println("Carro atualizado com sucesso");
+					System.out.println(carro.toString());
+				} else {
+					System.out.println("Erro na atualização");
+				}
+				carro = null;
+				success = false;
+			} else if (userControl == 3) {
+				carros = dao.getCarros();
+				if (carros.length > 0) {
+					System.out.println("Itens listados com sucesso");
+					for (int i = 0; i < carros.length; i++) {
+						System.out.println(carros[i].toString());
+					}
+				}
+			} else if (userControl == 4) {
+				System.out.println("Digite o id do carro que deseja remover");
+				success = dao.excluirCarro(reader.nextInt());
+			}
+			System.out.println("1 - adicionar\n2 - alterar\n3 - listar\n4 - remover\n0 - sair");
+			userControl = reader.nextInt();
+		}
+
+	}
+}
